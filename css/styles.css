@@ -61,6 +61,11 @@
 
 }
 
+#btn-p:hover{
+    color:black;
+    background-color: rgb(255, 230, 0);
+}
+
 @keyframes animation1 {
     0%{
         clip-path: polygon(100% 10%, 70% 10%, 70% 20%, 100% 20%, 100% 30%,
