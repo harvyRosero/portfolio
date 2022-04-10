@@ -1,26 +1,19 @@
-const swiper = new Swiper('.swiper', {
-    // Optional parameters
-    direction: 'horizontal',
-    loop: true,
-  
-    // If we need pagination
-    pagination: {
-      el: '.swiper-pagination',
-    },
-  
-    // Navigation arrows
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-  
-    // And if we need scrollbar
-    scrollbar: {
-      el: '.swiper-scrollbar',
-    },
+const $form = document.querySelector('#form');
 
-    effect: 'cube',
-    cubeEffect: {
-    slideShadows: false,
-    },
-  });
+$form.addEventListener('submit', handleSubmit);
+
+async function handleSubmit(e){
+  e.preventDefault();
+  const form = new FormData(this)
+  const response = await fetch(this.action, {
+    method: this.method,
+    body: form,
+    headers:{
+      'Accept': 'application/json'
+    }
+  })
+  if(response.ok){
+    alert('your message has been sent.')
+    this.reset()
+  }
+}
